@@ -1,0 +1,3 @@
+# Ignore local infratructure work
+lambda/
+terraform/
