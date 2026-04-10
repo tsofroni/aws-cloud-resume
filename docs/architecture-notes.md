@@ -9,6 +9,17 @@ This project consists of two main parts:
 
 The static frontend and the dynamic backend are intentionally separated.
 
+## Serverless Characteristics
+
+This architecture follows common serverless characteristics:
+- no server provisioning or lifecycle management
+- event-driven execution through HTTP requests
+- -automatic scaling based on demand
+- pay-per-use billing model
+- managed infrastructure operated by AWS
+
+These characteristics make the architecture suitable for low-traffic, sporadic workloads such as a personal website.
+
 ### High-level architecture
 
                 ┌────────────────────┐
@@ -40,9 +51,9 @@ Browser JavaScript
 
 ### Amazon S3
 S3 stores the static frontend assets:
-    - index.html
-    - styles.css
-    - app.js
+- index.html
+- styles.css
+- app.js
 S3 acts as the storage layer for the website files
 
 ### Amazon CloudFront
@@ -56,9 +67,9 @@ The frontend JavaScript sends a request to this endpoint.
 ### AWS Lambda
 Lambda contains the backend logic for the visitor counter.
 Its job is to:
-    - read the current visitor count
-    - increment the count
-    - return the updated value to the frontend
+- read the current visitor count
+- increment the count
+- return the updated value to the frontend
 
 ### Amazon DynamoDB
 DynamoDB stores the visitor count persistently.
@@ -66,16 +77,16 @@ The table uses a simple key structure and only stores the counter item for this 
 
 ### IAM
 IAM is used to control:
-    - Lambda execution permissions
-    - access to DynamoDB
-    - GitHub Actions authentication into AWS
+- Lambda execution permissions
+- access to DynamoDB
+- GitHub Actions authentication into AWS
 
 ### GitHub Actions
 GitHub Actions automates deployment of the frontend files.
 On push to the main branch, the workflow:
-    - authenticates to AWS using OIDC (OpenID Connect)
-    - syncs frontend files to S3
-    - invalidates the CloudFront cache
+- authenticates to AWS using OIDC (OpenID Connect)
+- syncs frontend files to S3
+- invalidates the CloudFront cache
 
 
 ## 3. Request Flows
@@ -123,10 +134,11 @@ Using OIDC avoids storing long-lived AWS access keys in GitHub and more closely 
 ## 5. Security Considerations
 
 The project includes several security-related decisions:
-    - frontend deployment is authenticated through GitHub OIDC
-    - no long-lived AWS access keys are required in the GitHub repository
-    - IAM roles are used instead of embedding credentials
-    - service permissions were configured explicitly during implementation
+- frontend deployment is authenticated through GitHub OIDC
+- no long-lived AWS access keys are required in the GitHub repository
+- IAM roles are used instead of embedding credentials
+- service permissions were configured explicitly during implementation
+
 As the project grows, security hardening can be improved further.
 
 
@@ -134,16 +146,16 @@ As the project grows, security hardening can be improved further.
 
 The project was intentionally built manually in the AWS Management Console first.
 This approach made it easier to understand:
-    - how each service is configured
-    - how the resources connect to each other
-    - how to troubleshoot issues step by step
+- how each service is configured
+- how the resources connect to each other
+- how to troubleshoot issues step by step
 After the manual setup worked, frontend deployment was automated through GitHub Actions.
 
 
 ## 7. Future Architecture Changes
 
 Planned next changes include:
-    - adding a custom domain with Route53
-    - adding TLS with AWS Certificate Manager
-    - refining the CloudFront and DNS setup
-    - later reproducing the infrastructure with Terraform
+- adding a custom domain with Route53
+- adding TLS with AWS Certificate Manager
+- refining the CloudFront and DNS setup
+- later reproducing the infrastructure with Terraform
