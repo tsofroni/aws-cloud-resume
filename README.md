@@ -8,6 +8,17 @@ It combines a static frontend hosted in AWS with a serverless backend for a visi
 
 The goal was not only to get the webiste working, but also to learn how to troubleshoot real issues involving permissions, caching, deployment and service  integration.
 
+## Why Serverless?
+
+This project uses a serverless architecture because:
+    - traffic is unpredictable and typically low
+    - there are no long-running workloads
+    - operational overhead should remain minimal
+    - costs should scale with actual usage
+
+Serverless services allow this project to run without any server management while still being secure, scalable and production-ready.
+For workloads with constant high traffic or long-running processing, a container-based or EC2-based solution would likely be a better fit. 
+
 ---
 
 ## Project Goals
@@ -70,6 +81,19 @@ Used for access control, Lambda execution roles and GitHub OIDC federation.
 ### GitHub Actions
 Used to automatically deploy frontend changes to AWS.
 
+## Cost Considerations
+
+This project is designed to stay largely within the AWS Free Tier.
+
+Estimated monthly cost with low traffic:
+    - Amazon S3 & CloudFront: ~ 0€
+    - AWS Lambda & DynamoDB: ~ 0€
+    - Amazon API Gateway & CloudWatch: ~ 1-2€
+    - AWS WAF: ~ 1€
+
+Estimated total cost: ~ 2-3€ per month
+
+Costs increase linearly with usage, which makes this architecture suitable for learning projects and low-traffic production use cases.
 
 ## Features implemented
 - personal resumé / portfolio frontend
@@ -79,6 +103,14 @@ Used to automatically deploy frontend changes to AWS.
 - automated frontend deployment through GitHub Actions
 - automatic CloudFront invalidation after deployment
 
+## Observability
+
+The serverless backend is monitored using Amazon CloudWatch:
+    - Lambda execution logs
+    - Error and duration metrics
+    - Basic alarms for failed or slow invocations
+
+Even though no servers are managed directly, monitoring is still required to detect issues early and understand system behavior.
 
 ## What I learned
 This project helped me better understand:
