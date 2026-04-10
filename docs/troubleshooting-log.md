@@ -18,17 +18,17 @@ At this point, the frontend files had already been uploaded and the public websi
 
 ### Initial Suspicions
 The first suspected causes included:
-    - incorrect S3 permissions
-    - incorrect CloudFront origin access configuration
-    - missing or incorrect bucket policy
-    - a problem with how CloudFront was requesting the origin content
+- incorrect S3 permissions
+- incorrect CloudFront origin access configuration
+- missing or incorrect bucket policy
+- a problem with how CloudFront was requesting the origin content
 
 ### Investigation
 The following areas were checked:
-    - S3 bucket policy
-    - origin settings in CloudFront
-    - whether the bucket content existed in the expected path
-    - whether the correct origin was being used
+- S3 bucket policy
+- origin settings in CloudFront
+- whether the bucket content existed in the expected path
+- whether the correct origin was being used
 
 ### Root Cause
 The setup was not fully aligned for proper delivery and later troubleshooting also revealed that the default root object configuration was missing.
@@ -96,10 +96,10 @@ The visitor counter had already been connected in the frontend through JavaScrip
 
 ### Initial Suspicions
 Possible causes included:
-    - incorrect API URL in the deployed app.js
-    - stale frontend cache
-    - API or Lambda errors
-    - browser-side request restrictions
+- incorrect API URL in the deployed app.js
+- stale frontend cache
+- API or Lambda errors
+- browser-side request restrictions
 
 ### Investigation
 The live app.js file served through CloudFront was checked directly. This helped confirm whether the expected API URL had really been deployed.
@@ -144,11 +144,11 @@ At different points, it was unclear whether the failure came from the frontend, 
 
 ### Investigation Strategy
 The system was broken down into layers:
-    1. verify whether the static frontend was loading
-    2. inspect the live deployed app.js
-    3. test the API URL directly
-    4. test Lambda directly
-    5. inspect CloudWatch logs
+1. verify whether the static frontend was loading
+2. inspect the live deployed app.js
+3. test the API URL directly
+4. test Lambda directly
+5. inspect CloudWatch logs
 
 ### Resolution
 The issue was narrowed down step by step until the failing layer cloud be identified.
@@ -171,3 +171,9 @@ The workflow was updated to use 'vars.*' for repository variables.
 
 ### Lesson Learned
 CI/CD pipelines can fail because of configuration mismatches even when the logic of the workflow itself is correct.
+
+
+## Overall learning
+
+Serverless architectures remove servers, not complexity.
+Effective troubleshooting requires understanding of service boundaries, execution flow and managed service behavior.
