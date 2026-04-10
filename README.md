@@ -55,6 +55,11 @@ Browser -> app.js -> API Gateway -> Lambda -> DynamoDB
 The frontend is delivered through CloudFront, while the visitor counter is implemented as a serverless backend component.
 
 
+## Architecture Diagram
+
+The following diagram represents the complete serverless architecture of this project, including edge services, frontend hosting, backend processing and data storage.
+[Architecture Diagram](docs/S3_Website_Hosting.png)
+
 ## AWS Services Used
 
 ### Amazon S3
