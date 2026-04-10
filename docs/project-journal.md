@@ -92,6 +92,9 @@ The most valuable lessons so far have been:
 
 The project also became much more authentic because multiple problems had to be diagnosed and fixed under realistic conditions.
 
+One important realization so far is that serverless architectures simplify infrastructure management, but shift complexity towards configuration, permissions and observability.
+Understanding these trade-offs early was one of the main takeaways of this project.
+
 ---
 
 ## Next Planned Phase
