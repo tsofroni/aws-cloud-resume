@@ -11,10 +11,10 @@ The goal was not only to get the webiste working, but also to learn how to troub
 ## Why Serverless?
 
 This project uses a serverless architecture because:
-    - traffic is unpredictable and typically low
-    - there are no long-running workloads
-    - operational overhead should remain minimal
-    - costs should scale with actual usage
+- traffic is unpredictable and typically low
+- there are no long-running workloads
+- operational overhead should remain minimal
+- costs should scale with actual usage
 
 Serverless services allow this project to run without any server management while still being secure, scalable and production-ready.
 For workloads with constant high traffic or long-running processing, a container-based or EC2-based solution would likely be a better fit. 
@@ -59,9 +59,9 @@ The frontend is delivered through CloudFront, while the visitor counter is imple
 
 ### Amazon S3
 Used to store the static frontend files:
-    - index.html
-    - styles.css
-    - app.js
+- index.html
+- styles.css
+- app.js
 
 ### Amazon CloudFront
 Used to deliver the website content and cache frontend assets.
@@ -86,10 +86,10 @@ Used to automatically deploy frontend changes to AWS.
 This project is designed to stay largely within the AWS Free Tier.
 
 Estimated monthly cost with low traffic:
-    - Amazon S3 & CloudFront: ~ 0€
-    - AWS Lambda & DynamoDB: ~ 0€
-    - Amazon API Gateway & CloudWatch: ~ 1-2€
-    - AWS WAF: ~ 1€
+- Amazon S3 & CloudFront: ~ 0€
+- AWS Lambda & DynamoDB: ~ 0€
+- Amazon API Gateway & CloudWatch: ~ 1-2€
+- AWS WAF: ~ 1€
 
 Estimated total cost: ~ 2-3€ per month
 
@@ -106,9 +106,9 @@ Costs increase linearly with usage, which makes this architecture suitable for l
 ## Observability
 
 The serverless backend is monitored using Amazon CloudWatch:
-    - Lambda execution logs
-    - Error and duration metrics
-    - Basic alarms for failed or slow invocations
+- Lambda execution logs
+- Error and duration metrics
+- Basic alarms for failed or slow invocations
 
 Even though no servers are managed directly, monitoring is still required to detect issues early and understand system behavior.
 
@@ -147,7 +147,7 @@ More detailed notes are available here:
 
 ## Next Steps
 The next planned steps for this project are:
-    - configure a custom domain with Route53
-    - add an SSL/TLS certificate with AWS Certificate Manager
-    - further refine the architecture
-    - later recreate the infrastructure using Terraform
+- configure a custom domain with Route53
+- add an SSL/TLS certificate with AWS Certificate Manager
+- further refine the architecture
+- later recreate the infrastructure using Terraform
