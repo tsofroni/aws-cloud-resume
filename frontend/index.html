@@ -1,69 +1,174 @@
 <!DOCTYPE html>
-<html lang="de">
-</head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Theo Sofroni | Cloud Engineer Resumé</title>
-    <link rel="stylesheet" href="./styles.css" />
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theo Sofroni | Cloud Engineer Resume</title>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-    <header class="hero">
-        <h1>Theo Sofroni</h1>
-        <p>Aspiring Cloud Engineer</p>
-        <p>Building hands-on cloud projects with AWS, Terraform, Python and automation.</p>
-        <p>Nuremberg, Germany | theodoros.sofroni@gmail.com | LinkedIn: www.linkedin.com/in/theo-sofroni</p>
-    </header>
+  <header class="site-header">
+    <nav class="top-nav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
 
-    <main class="container">
-        <section>
-            <h2>About</h2>
-            <p>
-                I am an aspiring cloud engineer focused on building practical projects in AWS.
-                My main interests are serverless architecture, infrastructure as code,
-                automation and learning how cloud services work together in real-world solutions. 
-            </p>
-        </section>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <span id="theme-icon">☀️</span>
+      </button>
+    </nav>
 
-        <section>
-            <h2>Skills</h2>
-            <ul>
-                <li>AWS: S3, CloudFront, Route53, ACM, Lambda, API Gateway, DynamoDB, IAM</li>
-                <li>IaC: Terraform</li>
-                <li>CI/CD: GitHub Actions</li>
-                <li>Languages: Python, JavaScript</li>     
-            </ul>
-        </section>
+    <section class="hero">
+      <p class="eyebrow">Aspiring Cloud Engineer</p>
+      <h1>Theo Sofroni</h1>
+      <p class="hero-text">
+        Building hands-on cloud projects with AWS, Terraform, Python and automation.
+      </p>
 
-        <section>
-            <h2>Projects</h2>
-            <article>
-            <h3>Cloud Resumé Project</h3>
-            <p>
-                Designed and deployed a personal resumé website hosted on Amazon S3 and delivered
-                through CloudFront with HTTPS and a custom domain. The project also includes 
-                a serverless visitor counter built with Lambda, API Gateway and DynamoDB.
-            </p>
-          </article>
-        </section>
+      <div class="hero-badges">
+        <span class="pill">AWS</span>
+        <span class="pill">Serverless</span>
+        <span class="pill">Terraform</span>
+        <span class="pill">Python</span>
+        <span class="pill">Automation</span>
+      </div>
 
-        <section>
-            <h2>Certifications</h2>
-            <p>AWS Certified Cloud Practitioner</p>
-            <p>Microsoft Certified: Azure Fundamentals</p>
-        </section>
+      <div class="hero-links">
+        <span>📍 Nuremberg, Germany</span>
+        <a href="mailto:theodoros.sofroni@gmail.com">✉ Email</a>
+        <a href="https://www.linkedin.com/in/theo-sofroni" target="_blank" rel="noopener noreferrer">in LinkedIn</a>
+        <a href="https://github.com/tsofroni" target="_blank" rel="noopener noreferrer">&lt;/&gt; GitHub</a>
+      </div>
+    </section>
+  </header>
 
-        <section>
-            <h2>Contact</h2>
-            <p>Email: theodoros.sofroni@gmail.com</p>
-            <p>LinkedIn: www.linkedin.com/in/theo-sofroni</p>
-        </section>
+  <main class="container">
+    <section id="about" class="content-card reveal">
+      <h2>About</h2>
+      <p>
+        I am an aspiring cloud engineer focused on building practical projects in AWS.
+        My main interests are serverless architecture, infrastructure as code,
+        automation and learning how cloud services work together in real-world solutions.
+      </p>
+    </section>
 
-        <section>
-            <h2>Visitor Counter</h2>
-            <p>This website has been visited <strong id="visitor-count">...</strong> times.</p>
-        </section>
-    </main>
+    <section id="skills" class="content-card reveal">
+      <h2>Skills</h2>
 
-    <script src="./app.js"></script>
+      <div class="skills-grid">
+        <article class="skill-card">
+          <h3>Cloud</h3>
+          <div class="tag-list">
+            <span class="tag">AWS</span>
+            <span class="tag">S3</span>
+            <span class="tag">CloudFront</span>
+            <span class="tag">Route 53</span>
+            <span class="tag">ACM</span>
+            <span class="tag">Lambda</span>
+            <span class="tag">API Gateway</span>
+            <span class="tag">DynamoDB</span>
+            <span class="tag">IAM</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h3>Infrastructure as Code</h3>
+          <div class="tag-list">
+            <span class="tag">Terraform</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h3>CI/CD</h3>
+          <div class="tag-list">
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">OIDC</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h3>Programming</h3>
+          <div class="tag-list">
+            <span class="tag">Python</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="content-card reveal">
+      <h2>Projects</h2>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-header">
+            <h3>AWS Cloud Resume Project</h3>
+            <span class="project-status">Live</span>
+          </div>
+
+          <p>
+            Built a personal resume website on AWS with a serverless visitor counter,
+            CloudFront delivery, and automated frontend deployment through GitHub Actions.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">S3</span>
+            <span class="tag">CloudFront</span>
+            <span class="tag">Lambda</span>
+            <span class="tag">API Gateway</span>
+            <span class="tag">DynamoDB</span>
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">OIDC</span>
+          </div>
+
+          <div class="project-links">
+            <a class="project-link" href="https://d3jjrhbl4ro04n.cloudfront.net/" target="_blank" rel="noopener noreferrer">Live Site ↗</a>
+            <a class="project-link" href="https://github.com/tsofroni/aws-cloud-resume" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="certifications" class="content-card reveal">
+      <h2>Certifications</h2>
+
+      <div class="certifications-grid">
+        <article class="cert-badge aws-badge">
+          <span class="cert-provider">AWS</span>
+          <h3>AWS Certified Cloud Practitioner</h3>
+          <p>Foundational cloud knowledge across AWS core services and concepts.</p>
+        </article>
+
+        <article class="cert-badge azure-badge">
+          <span class="cert-provider">Microsoft</span>
+          <h3>Azure Fundamentals</h3>
+          <p>Foundational understanding of core cloud concepts and Microsoft Azure services.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="content-card reveal">
+      <h2>Contact</h2>
+
+      <div class="contact-buttons">
+        <a class="contact-button" href="mailto:theodoros.sofroni@gmail.com">Email Me</a>
+        <a class="contact-button" href="https://www.linkedin.com/in/theo-sofroni" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="contact-button" href="https://github.com/tsofroni" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </section>
+
+    <section id="visitor-counter" class="content-card reveal">
+      <h2>Visitor Counter</h2>
+      <p>
+        This website has been visited
+        <strong id="visitor-count">...</strong>
+        times.
+      </p>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
 </body>
 </html>
